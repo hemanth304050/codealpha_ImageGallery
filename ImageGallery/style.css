@@ -1,0 +1,126 @@
+/* General Styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #1a1a1a;
+}
+
+/* Filter Buttons Styling */
+#filter-buttons {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn {
+    border: none;
+    background-color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+.btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Gallery Layout - Responsive Grid */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out, opacity 0.4s ease;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* Lightbox Styling */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 85vw;
+    max-height: 80vh;
+    animation: zoomIn 0.4s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Lightbox Navigation & Close Buttons */
+.close-btn, .prev-btn, .next-btn {
+    position: absolute;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection */
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover, .prev-btn:hover, .next-btn:hover {
+    color: #bbb;
+}
+
+.close-btn {
+    top: 20px;
+    right: 35px;
+}
+
+.prev-btn {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.next-btn {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
